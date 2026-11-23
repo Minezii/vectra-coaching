@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-obsidian: #05080E;
+  --color-navy-950: #0A1120;
+  --color-navy-900: #111C30;
+  --color-navy-800: #182742;
+  --color-cobalt: #3B82F6;
+  --color-cobalt-deep: #1D4ED8;
+}
+
+@layer base {
+  html {
+    background-color: #05080E;
+    color: #F1F5F9;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #05080E;
+    overflow-x: hidden;
+  }
+
+  button:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="range"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid #3B82F6;
+    outline-offset: 2px;
+  }
+
+  /* Custom subtle dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #05080E;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #182742;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #253B63;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.bg-blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Custom OLED Dark-Navy Range Sliders */
+input[type="range"].vectra-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: #111C30;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+input[type="range"].vectra-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 9999px;
+  background: #3B82F6;
+  border: 2px solid #F1F5F9;
+  box-shadow: 0 0 0 2px rgba(5, 8, 14, 0.8);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].vectra-range::-webkit-slider-thumb:hover {
+  background: #60A5FA;
+  transform: scale(1.08);
+}
+
+input[type="range"].vectra-range::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 9999px;
+  background: #3B82F6;
+  border: 2px solid #F1F5F9;
+  box-shadow: 0 0 0 2px rgba(5, 8, 14, 0.8);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
